@@ -353,6 +353,7 @@ cmd_down() {
 }
 
 cmd_restart() {
+	[[ " $(wg show interfaces) " == *" $INTERFACE "* ]] || die "\`$INTERFACE' is not a WireGuard interface"
 	cmd_down
 	cmd_up
 }
